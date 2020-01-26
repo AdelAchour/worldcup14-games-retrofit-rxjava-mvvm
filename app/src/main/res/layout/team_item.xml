@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="#FFEF82"
+    app:cardCornerRadius="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15sp">
+
+        <TextView
+            android:id="@+id/titleTV"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#256F27"
+            android:text="Algeria" />
+
+        <TextView
+            android:id="@+id/idTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTV"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="5"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

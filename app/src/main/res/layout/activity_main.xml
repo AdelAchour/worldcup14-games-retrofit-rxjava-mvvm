@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModelTeam"
+            type="com.production.achour_ar.retrofit_mvvm_test.ui.teams.TeamViewModel" />
+
+        <variable
+            name="viewModelGame"
+            type="com.production.achour_ar.retrofit_mvvm_test.ui.games.GameViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.teams.MainActivity">
+
+
+        <Button
+            android:id="@+id/teamsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->viewModelGame.getGames()}"
+            android:text="Loading..." />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/teamsButton"
+            android:layout_centerHorizontal="true"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/teamsButton"
+            android:layout_centerHorizontal="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclergames"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/teamsButton"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</layout>
