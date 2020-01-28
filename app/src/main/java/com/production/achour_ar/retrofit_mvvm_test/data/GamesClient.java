@@ -2,8 +2,11 @@ package com.production.achour_ar.retrofit_mvvm_test.data;
 
 import com.production.achour_ar.retrofit_mvvm_test.pojo.GameModel;
 import java.util.List;
+
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GamesClient {
@@ -15,6 +18,7 @@ public class GamesClient {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         mInterface = retrofit.create(GameInterface.class);
     }
@@ -26,7 +30,7 @@ public class GamesClient {
         return INSTANCE;
     }
 
-    public Call<List<GameModel>> getGames(){
+    public Observable<List<GameModel>> getGames(){
         return mInterface.getGames();
     }
 }

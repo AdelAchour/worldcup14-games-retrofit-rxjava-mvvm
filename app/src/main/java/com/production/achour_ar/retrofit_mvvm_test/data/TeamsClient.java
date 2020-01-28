@@ -4,8 +4,10 @@ import com.production.achour_ar.retrofit_mvvm_test.pojo.TeamModel;
 
 import java.util.List;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TeamsClient {
@@ -18,6 +20,7 @@ public class TeamsClient {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         teamInterface = retrofit.create(TeamInterface.class);
     }
@@ -29,7 +32,7 @@ public class TeamsClient {
         return INSTANCE;
     }
 
-    public Call<List<TeamModel>> getTeams(){
+    public Observable<List<TeamModel>> getTeams(){
         return teamInterface.getTeams();
     }
 }
